@@ -1,0 +1,21 @@
+version: "2.2"
+services:
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    hostname: mongo
+
+  data-service:
+    image: estate-api:latest
+    links:
+      - mongo
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongo
+    depends_on:
+      - mongo
+    ports:
+      - "8080:8080"

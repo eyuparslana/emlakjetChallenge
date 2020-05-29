@@ -1,0 +1,13 @@
+service:
+  name: EmlakJet Estate Api
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api/swagger.json
